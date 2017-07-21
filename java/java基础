@@ -37,7 +37,11 @@ i)Vector:线程安全，速度慢，一般使用ArrayList替换，当空间使�
 2）实现Runnable接口
 3）使用ExecutorService、Callable、Future实现有返回结果的多线程
 
-6、equal 与 == 的区别
+6、【equals】和 【==】 说明
+1）两者在Object中，两者是一样的，没有区别，比较的是内存中存放的对象的地址
+2）有些类重写了equals方法，如String、Integer等，String是比较的对象存储的内容。
+
+
 7、String、StringBuffer、StringBuilder的说明
 1）String：是不可变类(final)，一旦String对象被创建，包含在对象中的字符序列是不可变的，直到对象被销毁
   i)String类重写了equals方法，改变了这些对象相等的原则，改为判断对象的内容是否相等，具体请查看String类源码
@@ -78,14 +82,9 @@ i)Vector:线程安全，速度慢，一般使用ArrayList替换，当空间使�
    System.out.println(str1.hashCode() == str2.hashCode());  
    //查看源码，此hashCode是对存储的内容取hash值
    //输出 true
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
+2) StringBuffer 与 StringBuilder: 两个类的对象都是可变的，拼接字符串，不用每次都重新创建对象，效率高，
+ i) StringBuffer：线程安全的
+ ii)StringBuilder:非线程安全的，在方法内使用，建议使用此方法，性能高点。
+  
 8、
