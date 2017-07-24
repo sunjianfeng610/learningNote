@@ -1,1 +1,6 @@
+1、在mysql中，truncate\delete\drop相关说明：
+1)truncate功能上与不带条件的delete语句一样，删除表中的所有数据，但是truncate比delete速度快，切使用的系统和事务日志资源少。
+2）delete每次删除一行，都会记录记录日志。truncate通过释放存储表数据所用的数据页来删除数据，并且在事务日志中只记录页的释放。
+3）truncate删除表中的所有行，但表结构及其列、约束、索引保持不变，新行自增列的起始值归零。
+4）如果有rollback语句，delete操作将被撤销，但truncate不会撤销。
 
