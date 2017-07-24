@@ -3,4 +3,9 @@
 2）delete每次删除一行，都会记录记录日志。truncate通过释放存储表数据所用的数据页来删除数据，并且在事务日志中只记录页的释放。
 3）truncate删除表中的所有行，但表结构及其列、约束、索引保持不变，新行自增列的起始值归零。
 4）如果有rollback语句，delete操作将被撤销，但truncate不会撤销。
-
+5）delete属于DML语句，这个操作会放在rollback segement中，事务提交后才会生效，如果有相应的触发器，执行的时候将被触发。
+6）truncate\drop是DDL语句，操作后即生效，元数据不会放到rollback中，不能回滚，操作不会触发触发器。
+7)delete不会影响表所占用的extent、高水线保持原始位置不动。drop语句将表所占用的空间全部释放。truncate语句缺省情况下将空间释放到minextents的extent,
+除非使用reuser storage.truncate会将高水线复位（回到最初）。
+8) delete是DML语句，不会自动提交。drop、truncate是DDL语句，执行后自动提交。
+9）效率方面：drop > truncate > delete。
