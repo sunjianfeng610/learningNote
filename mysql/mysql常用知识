@@ -9,3 +9,25 @@
 除非使用reuser storage.truncate会将高水线复位（回到最初）。
 8) delete是DML语句，不会自动提交。drop、truncate是DDL语句，执行后自动提交。
 9）效率方面：drop > truncate > delete。
+
+2、SQL语言的分类：
+  分为四类：数据查询语言DQL、数据操纵语言DML、数据定义语言DDL、数据控制语言DCL。
+1）数据查询语言DQL
+  select columns from tables where
+
+2)数据操作语言DML 
+  insert update delete 
+ 
+3)数据定义语言DDL
+  create table/view/index/syn/cluster
+用于创建表、视图、索引、同义词、聚簇等，DDL是隐性提交的，不能rollback。
+
+4）数据控制语言DCL
+ i)GRANT 授权
+ ii)ROLLBACK [work] TO [savepoint] 回退到某一点。
+ iii)COMMIT : 提交。
+ 
+3、提交数据有三种类型：显式提交、隐式提交、自动提交。
+1）显示提交：commit
+2）隐式提交：命令包括：alter、audit、comment、connect、create、disconnect、drop、exit、grant、noaudit、quit、revoke、rename。
+3）自动提交：若把autocommit设置为on，则插入、修改、删除语句执行后，系统自动进行提交，这就是自动提交。如： set autocommit on;
