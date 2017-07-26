@@ -31,3 +31,16 @@
 1）显示提交：commit
 2）隐式提交：命令包括：alter、audit、comment、connect、create、disconnect、drop、exit、grant、noaudit、quit、revoke、rename。
 3）自动提交：若把autocommit设置为on，则插入、修改、删除语句执行后，系统自动进行提交，这就是自动提交。如： set autocommit on;
+
+4、MySQL5.6  Innodb存储引擎中，以下哪些事务隔离级别会产生幻读？
+
+5、MySQL binlog日志格式都有哪些？
+
+6、MySQL5.6 Innodb存储引擎中，分区表分区类型有哪些？
+
+7、B+树的特点：
+1）一种多路搜索树
+2）一种平衡查找树
+3）非叶子结点相当于是叶子结点的索引，叶子结点相当于是存储数据的数据层
+4）所有关键字都出现在叶子结点的链表中，且链表中的关键字恰好是有序的
+参照：http://blog.csdn.net/hbhhww/article/details/8206846
